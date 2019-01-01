@@ -1,3 +1,14 @@
+# Project Details
+
+This is project boilerplate for React, Redux & Firebase application.
+Created by Yasantha Hennayake
+
+### CSS Framework
+Semantic UI React (https://react.semantic-ui.com).
+
+
+# Create React App Documentation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

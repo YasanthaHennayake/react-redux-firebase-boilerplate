@@ -1,26 +1,27 @@
+//Core imports
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { Container } from 'semantic-ui-react'
+
+//Main navigation releated imports
+import MainNav from './components/common/MainNav';
+import { MainNavConfig } from './config/navConfig';
+
+//Layout imports
+import Dashboard from './components/layout/dashboard/Dashboard';
+import Section from './components/layout/section/Section'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Container>
+        <MainNav MainNavConfig={MainNavConfig} />
+        {/* Define all main app components here */}
+        <Switch>
+          <Route path='/dashboard' component={Dashboard} />
+          <Route path='/section' component={Section} />
+        </Switch>
+      </Container>
     );
   }
 }
