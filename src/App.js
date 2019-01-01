@@ -8,8 +8,8 @@ import MainNav from './components/common/MainNav';
 import { MainNavConfig } from './config/navConfig';
 
 //Layout imports
-import Dashboard from './components/layout/dashboard/Dashboard';
-import Section from './components/layout/section/Section'
+import Dashboard from './components/layouts/dashboard';
+import Section from './components/layouts/section'
 
 class App extends Component {
   render() {

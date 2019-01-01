@@ -6,11 +6,18 @@ export const MainNavConfig = [
 ]
 
 //Define side navigation here for each section
-export const SideNavConfig = {
-    dashboard: [
-        {name: 'section', link:'/section'}
-    ],
-    section: [
-        {name: 'dashboard', link: '/section'}
-    ]
-}
+export const sectionNavConfig = [
+    { 
+        menuHeader: 'Section',
+        menuItems: [
+            { name: 'section content', link:'/section/content'}
+        ]
+    },
+    { 
+        menuHeader: 'Test Links',
+        menuItems: [
+            { name: 'home', link:'/'},
+            { name: 'dashboard', link:'/dashboard'}
+        ]
+    }
+]
