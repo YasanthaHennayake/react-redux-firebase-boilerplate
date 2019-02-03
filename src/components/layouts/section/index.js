@@ -5,7 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 import SideNav from '../../common/SideNav';
 import { sectionNavConfig } from '../../../config/navConfig';
 
-import SectionContent from './SectionContent';
+import CreateRecord from './CreateRecord';
+import ShowRecords from './ShowRecords';
 
 
 export class Section extends Component {
@@ -18,7 +19,8 @@ export class Section extends Component {
 
         <Grid.Column stretched width={13}>
           <Switch>
-            <Route path='/section/content' component={SectionContent} />
+            <Route path='/section/create' component={CreateRecord} />
+            <Route path='/section/show' component={ShowRecords} />
           </Switch>
         </Grid.Column>
       </Grid>

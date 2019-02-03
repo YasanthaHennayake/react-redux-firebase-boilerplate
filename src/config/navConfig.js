@@ -1,3 +1,11 @@
+//Define all routes here.
+//This can be used when programatic navigation is required via "history.push('path')"
+export const allRoutes = {
+    section: {
+        create: '/section/create'
+    }
+}
+
 //Define main navigation configuration here
 export const MainNavConfig = [
     {name: 'home', link:'/'},
@@ -10,7 +18,8 @@ export const sectionNavConfig = [
     { 
         menuHeader: 'Section',
         menuItems: [
-            { name: 'section content', link:'/section/content'}
+            { name: 'records', link:'/section/show'},
+            { name: 'create record', link:'/section/create'}            
         ]
     },
     { 

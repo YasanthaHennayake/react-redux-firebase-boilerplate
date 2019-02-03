@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Input, Menu, Image, Divider } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signOut } from '../../store/actions/authActions';
 
 import Brand from '../../resources/logo.png';
 
@@ -9,6 +11,10 @@ class MainNav extends Component {
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
+  }
+
+  handleSignOut = ()=> {
+    this.props.signOut();
   }
 
   render() {
@@ -50,7 +56,7 @@ class MainNav extends Component {
             <Menu.Item
               name='logout'
               active={activeItem === 'logout'}
-              onClick={this.handleItemClick}
+              onClick={this.handleSignOut}
             />
           </Menu.Menu>
         </Menu>
@@ -61,4 +67,12 @@ class MainNav extends Component {
   }
 }
 
-export default MainNav;
+
+
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    signOut: () => dispatch(signOut())
+  }
+}
+
+export default connect(null,mapDispatchToProps)(MainNav);

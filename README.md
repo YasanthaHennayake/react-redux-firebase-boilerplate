@@ -3,6 +3,19 @@
 This is project boilerplate for React, Redux & Firebase application.
 Created by Yasantha Hennayake
 
+Last updated on 7th January 2019
+
+## Frameworks and Packages Used
+
+### React
+Built with create-react-app
+
+### Redux
+To manage application level state
+
+### React-Redux
+React-Redux V6 is not reccomended as react-redux-firebase latest package has compatibility issues.
+
 ### CSS Framework
 Semantic UI React (https://react.semantic-ui.com).
 

@@ -1,7 +1,8 @@
 //Core imports
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from 'semantic-ui-react'
+import { connect } from 'react-redux';
 
 //Main navigation releated imports
 import MainNav from './components/common/MainNav';
@@ -12,7 +13,13 @@ import Dashboard from './components/layouts/dashboard';
 import Section from './components/layouts/section'
 
 class App extends Component {
+  
   render() {
+
+    //Protectig the component to prevent access without login
+    const { auth } = this.props;
+    if(!auth.uid) return <Redirect to='/signin' />
+
     return (
       <Container>
         <MainNav MainNavConfig={MainNavConfig} />
@@ -26,4 +33,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(App);
