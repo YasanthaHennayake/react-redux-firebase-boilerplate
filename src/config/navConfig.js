@@ -10,7 +10,8 @@ export const allRoutes = {
 export const MainNavConfig = [
     {name: 'home', link:'/'},
     {name: 'dashboard', link:'/dashboard'},
-    {name: 'section', link:'/section'}
+    {name: 'section', link:'/section'},
+    {name: 'settings', link:'/settings'}
 ]
 
 //Define side navigation here for each section
@@ -27,6 +28,29 @@ export const sectionNavConfig = [
         menuItems: [
             { name: 'home', link:'/'},
             { name: 'dashboard', link:'/dashboard'}
+        ]
+    }
+]
+
+export const settingsNavConfig = [
+    { 
+        menuHeader: 'Access',
+        menuItems: [
+            //{ name: 'Assign', link:'/setting/accessManagement'},        
+            { name: 'Roles', link:'/settings/roles'},           
+            //{ name: 'Access Control Template', link:'/setting/accessControlTemplate'}           
+        ]
+    },
+    { 
+        menuHeader: 'Members',
+        menuItems: [
+            { name: 'Invitations', link:'/settings/invitations'},        
+        ]
+    },
+    { 
+        menuHeader: 'Profile',
+        menuItems: [
+            { name: 'Update Profile', link:'/settings/empty'}        
         ]
     }
 ]

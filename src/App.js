@@ -11,6 +11,7 @@ import { MainNavConfig } from './config/navConfig';
 //Layout imports
 import Dashboard from './components/layouts/dashboard';
 import Section from './components/layouts/section'
+import Settings from './components/layouts/settings';
 
 class App extends Component {
   
@@ -27,6 +28,7 @@ class App extends Component {
         <Switch>
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/section' component={Section} />
+          <Route path='/settings' component={Settings} />
         </Switch>
       </Container>
     );
@@ -34,7 +36,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     auth: state.firebase.auth
   }

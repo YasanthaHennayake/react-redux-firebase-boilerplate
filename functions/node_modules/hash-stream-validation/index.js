@@ -20,7 +20,7 @@ module.exports = function (cfg) {
   if (md5) hashes.md5 = crypto.createHash('md5')
 
   var onData = function (chunk, enc, done) {
-    if (crc32c) hashes.crc32c = crc.calculate(chunk, hashes.crc32c)
+    if (crc32c) hashes.crc32c = crc.calculate(chunk, hashes.crc32c || 0)
     if (md5) hashes.md5.update(chunk)
 
     done(null, chunk)

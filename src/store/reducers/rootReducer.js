@@ -1,5 +1,6 @@
 import authReduder from './authReducer';
 import recordReducer from './recordReducer';
+import settingsReducer from './settingsReducer';
 import { firestoreReducer } from 'redux-firestore';
 import { firebaseReducer } from 'react-redux-firebase'
 
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
     auth: authReduder,
     record: recordReducer,
     firestore: firestoreReducer,
-    firebase: firebaseReducer
+    firebase: firebaseReducer,
+    settings: settingsReducer
 })
 
 export default rootReducer;
