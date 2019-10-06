@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Table, Header, Button, Popup, Icon } from 'semantic-ui-react';
+import { Segment, Table, Header, Button, Popup, Icon, Dimmer, Loader } from 'semantic-ui-react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -9,7 +9,7 @@ import { createNewInvite, updateInvite, deleteInvite } from '../../../../store/a
 
 
 
-class Invites extends Component{
+class Invites extends Component {
 
 
     handleCreate = (inviteData) => {
@@ -17,18 +17,28 @@ class Invites extends Component{
     }
 
     handleUpdate = (inviteID, inviteData) => {
-        this.props.updateInvite(inviteID,inviteData);
+        this.props.updateInvite(inviteID, inviteData);
 
     }
     handleDelete = (inviteID) => {
         this.props.deleteInvite(inviteID);
     }
 
-    render(){
-        
+    render() {
+
         const { invites } = this.props;
 
-        return(
+        if (!invites) {
+            return (
+                <Segment>
+                    <Dimmer active inverted>
+                        <Loader inverted>Loading</Loader>
+                    </Dimmer>
+                </Segment>
+            )
+        }
+
+        return (
             <Segment>
                 <Header as='h5'>Invitations</Header>
                 <Table compact celled>
@@ -47,7 +57,7 @@ class Invites extends Component{
                     </Table.Header>
 
                     <Table.Body>
-                    {
+                        {
                             invites && invites.map(invite => {
                                 return (
                                     <Table.Row key={invite.id}>
@@ -78,17 +88,17 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch)=>{
-    return{
+const mapDispatchToProps = (dispatch) => {
+    return {
         createNewInvite: (inviteData) => dispatch(createNewInvite(inviteData)),
-        updateInvite: (inviteID, inviteData) => dispatch(updateInvite(inviteID,inviteData)),
-        deleteInvite: (inviteID)=> dispatch(deleteInvite(inviteID)),
+        updateInvite: (inviteID, inviteData) => dispatch(updateInvite(inviteID, inviteData)),
+        deleteInvite: (inviteID) => dispatch(deleteInvite(inviteID)),
     }
 }
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
     firestoreConnect([
-        { collection: 'invites'}
+        { collection: 'invites' }
     ])
 )(Invites);

@@ -7,6 +7,7 @@ import { settingsNavConfig } from '../../../config/navConfig';
 
 import Roles from './roles';
 import Invites from './invites';
+import Users from './users';
 
 
 export class Settings extends Component {
@@ -21,6 +22,7 @@ export class Settings extends Component {
           <Switch>
             <Route path='/settings/roles' component={Roles} />
             <Route path='/settings/invitations' component={Invites} />
+            <Route path='/settings/users' component={Users} />
           </Switch>
         </Grid.Column>
       </Grid>

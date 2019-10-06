@@ -5,6 +5,7 @@ import 'semantic-ui-css/semantic.min.css'
 import App from './App';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import InviteSignUp from './components/auth/InviteSignUp';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
@@ -29,6 +30,7 @@ store.firebaseAuthIsReady.then(() => {
                 <Switch>
                     <Route path='/signin' component={SignIn} />
                     <Route path='/signup' component={SignUp} />
+                    <Route path='/invitation/:inviteID' component={InviteSignUp} />
                     <Route path='/' component={App} />
                 </Switch>
             </BrowserRouter>

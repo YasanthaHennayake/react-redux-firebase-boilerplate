@@ -5,10 +5,11 @@ const initState = {
     firstName: '',
     lastName: '',
     designation: '',
-    email: ''
+    email: '',
+    uid: ''
 }
 
-export class Invite extends Component {
+export class User extends Component {
 
     state = initState;
 
@@ -25,14 +26,11 @@ export class Invite extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { modalTrigger } = this.props;
-        const { modalOpen, ...inviteData } = this.state;
+        const { modalOpen, ...userData } = this.state;
 
         switch (modalTrigger) {
-            case 'newInvite':
-                this.props.action(inviteData);
-                break;
-            case 'editInvite':
-                this.props.action(this.props.inviteData.id, inviteData);
+            case 'editUser':
+                this.props.action(this.props.userData.uid, userData);
                 break;
             default:
                 break;
@@ -42,13 +40,9 @@ export class Invite extends Component {
 
     selectModalTrigger = (triggerType) => {
         switch (triggerType) {
-            case 'newInvite':
+            case 'editUser':
                 return (
-                    <Button onClick={this.handleOpen} floated='right' icon labelPosition='left' primary size='small'><Icon name='user' />New Invitation</Button>
-                );
-            case 'editInvite':
-                return (
-                    <Popup content='Edit Invitaion' trigger={<Button compact icon onClick={this.handleOpen}><Icon name='edit' /></Button>} />
+                    <Popup content='Edit User' trigger={<Button compact icon onClick={this.handleOpen}><Icon name='edit' /></Button>} />
                 );
             default:
                 return null;
@@ -56,8 +50,8 @@ export class Invite extends Component {
     }
 
     componentDidMount(){
-        if(this.props.inviteData){
-            this.setState({...this.state, ...this.props.inviteData});
+        if(this.props.userData){
+            this.setState({...this.state, ...this.props.userData});
         } else {
             this.setState(initState);
         }
@@ -109,6 +103,7 @@ export class Invite extends Component {
                                 name='email'
                                 onChange={this.handleChange}
                                 value={email}
+                                disabled
                             />
                         </Form.Group>
                     </Form>
@@ -127,4 +122,4 @@ export class Invite extends Component {
 }
 
 
-export default Invite
+export default User

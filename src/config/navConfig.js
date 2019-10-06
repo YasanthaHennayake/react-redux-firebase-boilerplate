@@ -34,23 +34,23 @@ export const sectionNavConfig = [
 
 export const settingsNavConfig = [
     { 
-        menuHeader: 'Access',
-        menuItems: [
-            //{ name: 'Assign', link:'/setting/accessManagement'},        
-            { name: 'Roles', link:'/settings/roles'},           
-            //{ name: 'Access Control Template', link:'/setting/accessControlTemplate'}           
-        ]
-    },
-    { 
-        menuHeader: 'Members',
-        menuItems: [
-            { name: 'Invitations', link:'/settings/invitations'},        
-        ]
-    },
-    { 
         menuHeader: 'Profile',
         menuItems: [
-            { name: 'Update Profile', link:'/settings/empty'}        
+            { name: 'Update Profile', link:'/settings/update-profile'},
+            { name: 'Reset Password', link:'/settings/reset-password'}        
         ]
-    }
+    },
+    { 
+        menuHeader: 'Access',
+        menuItems: [       
+            { name: 'Roles', link:'/settings/roles'}       
+        ]
+    },
+    { 
+        menuHeader: 'Users',
+        menuItems: [
+            { name: 'Invitations', link:'/settings/invitations'},  
+            { name: 'Users', link:'/settings/users'}      
+        ]
+    }  
 ]

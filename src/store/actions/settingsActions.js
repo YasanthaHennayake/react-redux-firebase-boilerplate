@@ -51,3 +51,38 @@ export const deleteInvite = (inviteID) => {
         });
     }
 }
+
+export const editUser = (uid, userData) => {
+    return(dispatch, getState, { getFirestore }) => {
+        const firestore = getFirestore();
+        firestore.collection('users').doc(uid).set({
+            ...userData
+        }).then(()=>{
+            dispatch({
+                type: 'EDIT_USER',
+                userData
+            })
+        }).catch((err)=>{
+            dispatch({
+                type: 'EDIT_USER_ERROR',
+                err
+            })
+        })
+    }
+}
+
+export const deleteUser = (uid) => {
+    return(dispatch, getState, { getFirestore }) => {
+        const firestore = getFirestore();
+        firestore.collection('users').doc(uid).delete().then(()=>{
+            dispatch({
+                type: 'DELETE_USER'
+            })
+        }).catch((err)=>{
+            dispatch({
+                type: 'DELETE_USER_ERROR',
+                err
+            })
+        })
+    }
+}
