@@ -10,7 +10,8 @@ export const allRoutes = {
 export const MainNavConfig = [
     {name: 'home', link:'/'},
     {name: 'dashboard', link:'/dashboard'},
-    {name: 'section', link:'/section'}
+    {name: 'section', link:'/section'},
+    {name: 'settings', link:'/settings'}
 ]
 
 //Define side navigation here for each section
@@ -29,4 +30,27 @@ export const sectionNavConfig = [
             { name: 'dashboard', link:'/dashboard'}
         ]
     }
+]
+
+export const settingsNavConfig = [
+    { 
+        menuHeader: 'Profile',
+        menuItems: [
+            { name: 'Update Profile', link:'/settings/update-profile'},
+            { name: 'Reset Password', link:'/settings/reset-password'}        
+        ]
+    },
+    { 
+        menuHeader: 'Access',
+        menuItems: [       
+            { name: 'Roles', link:'/settings/roles'}       
+        ]
+    },
+    { 
+        menuHeader: 'Users',
+        menuItems: [
+            { name: 'Invitations', link:'/settings/invitations'},  
+            { name: 'Users', link:'/settings/users'}      
+        ]
+    }  
 ]

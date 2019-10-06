@@ -58,4 +58,4 @@ The alogrithm to test the sum against ('crc32c' or 'md5').
 #### sum
 - Type: `String`
 
-The sum to validate.
+The base64-encoded sum to validate.
